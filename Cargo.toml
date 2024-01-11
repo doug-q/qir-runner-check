@@ -1,0 +1,24 @@
+[package]
+name = "qir-runner-check"
+version = "0.1.0"
+edition = "2021"
+license = "Apache-2.0"
+
+[dependencies]
+qir-backend = { path ="qir-runner/backend" }
+qir-stdlib = { path = "qir-runner/stdlib" }
+
+[lib]
+crate-type = ["staticlib"]
+
+
+[features]
+default = ["capi"]
+capi = []
+
+[workspace]
+members = [".", "qir-runner/backend", "qir-runner/sparsesim", "qir-runner/stdlib"]
+resolver = "2"
+
+[package.metadata.capi.header]
+generation = true

@@ -17,6 +17,7 @@
       systems = [ "x86_64-linux" "aarch64-darwin" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         devenv.shells.default = {pkgs,...}: {
+          packages = [ pkgs.openssl.dev pkgs.lldb  ];
           languages.rust = {
             enable = true;
             channel = "stable";
