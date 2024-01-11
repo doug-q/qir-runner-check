@@ -42,6 +42,7 @@ void teleport(void* src, void* dest) {
     if (measure(ancilla)) {
         __quantum__qis__x__body(dest);
     }
+    __quantum__rt__qubit_release(ancilla);
 }
 
 int main() {
@@ -52,7 +53,7 @@ int main() {
 
     // Initialise the source state
     __quantum__qis__reset__body(qb0);
-    __quantum__qis__x__body(qb0);
+    __quantum__qis__h__body(qb0);
 
     teleport(qb0,qb1);
     __quantum__rt__bool_record_output(measure(qb1), NULL);
